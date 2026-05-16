@@ -7,8 +7,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Sistema 2026">
 <meta name="theme-color" content="#ffffff">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="manifest" href="file:///Users/lore/Downloads/manifest.json">
+<link rel="apple-touch-icon" href="file:///Users/lore/Downloads/icon-192.png">
 <title>Lore — Sistema Estivo 2026</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
@@ -291,6 +291,20 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
 .tp-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
 .tp-cell{background:#f7f6f3;border-radius:8px;padding:10px 12px;}
 .cal-btn{display:block;width:100%;padding:12px;background:#fff;border:1px solid #e9e8e5;border-radius:10px;font-size:13px;font-weight:600;font-family:inherit;color:#2383e2;cursor:pointer;text-align:center;margin-top:10px;text-decoration:none;}
+.day-grid-tp{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:6px;}
+.day-box-tp{border-radius:8px;padding:10px 4px;text-align:center;border:1px solid #e9e8e5;}
+.day-box-tp .d-name{font-size:10px;font-weight:600;margin-bottom:3px;}
+.day-box-tp .d-wr{font-size:18px;font-weight:700;margin-bottom:1px;}
+.day-box-tp .d-pnl{font-size:9px;}
+.orario-row-tp{display:grid;grid-template-columns:120px 44px 1fr;border-radius:8px;overflow:hidden;border:1px solid #e9e8e5;margin-bottom:6px;}
+.orario-row-tp:last-child{margin-bottom:0;}
+.or-time{padding:9px 10px;font-size:12px;font-weight:600;display:flex;align-items:center;}
+.or-wr{padding:9px 6px;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+.or-note{padding:9px 10px;font-size:11px;display:flex;align-items:center;border-left:1px solid rgba(0,0,0,0.06);}
+.confirm-item-tp{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid #f0efec;font-size:13px;color:#37352f;line-height:1.5;}
+.confirm-item-tp:last-child{border-bottom:none;padding-bottom:0;}
+.confirm-num-tp{width:20px;height:20px;border-radius:50%;background:#d4eabc;color:#448b35;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.confirm-tf-tp{font-size:10px;font-weight:700;color:#2383e2;margin-right:4px;}
 
 .obj-block{background:#fff;border:1px solid #e9e8e5;border-radius:10px;padding:14px 16px;margin-bottom:12px;}
 .obj-item{margin-bottom:12px;}.obj-item:last-child{margin-bottom:0;}
@@ -394,11 +408,11 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
     <div style="display:flex;gap:18px;align-items:flex-end;">
       <div style="text-align:center;">
         <div style="font-size:10px;font-weight:700;color:#9b9a97;letter-spacing:.07em;margin-bottom:2px;">🇮🇹 IT</div>
-        <div class="g-cockpit-clock" id="g-clock">15:25</div>
+        <div class="g-cockpit-clock" id="g-clock">22:55</div>
       </div>
       <div style="text-align:center;">
         <div style="font-size:10px;font-weight:700;color:#9b9a97;letter-spacing:.07em;margin-bottom:2px;">🗽 NY</div>
-        <div style="font-size:28px;font-weight:600;color:#9b9a97;font-variant-numeric:tabular-nums;line-height:1;" id="g-clock-ny">09:25</div>
+        <div style="font-size:28px;font-weight:600;color:#9b9a97;font-variant-numeric:tabular-nums;line-height:1;" id="g-clock-ny">16:55</div>
       </div>
     </div>
   </div>
@@ -407,33 +421,33 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
   <div class="g-queue-card" id="g-now-card">
     <div class="g-queue-header">
       <span class="g-queue-ora">ORA</span>
-      <span class="g-queue-time" id="g-time-left">⏱ 95 min</span>
+      <span class="g-queue-time" id="g-time-left"></span>
     </div>
     <div class="g-queue-body">
       <div class="g-queue-tasks">
         <!-- ATTIVA -->
         <div class="g-task-row g-task-active">
           <div class="g-task-check active"></div>
-          <span class="g-task-name" id="g-now-txt">Pre-NY + Overlap London/NY</span>
+          <span class="g-task-name" id="g-now-txt">Nessuna attività in corso</span>
           <span class="g-task-badge">ATTIVA</span>
         </div>
         <!-- NEXT 1 -->
         <div class="g-task-row" id="g-queue-1" style="display: flex;">
           <div class="g-task-check"></div>
-          <span class="g-task-name g-task-dim" id="g-q1-txt">Chiudi tutto + registra trade</span>
-          <span class="g-task-hour" id="g-q1-time">17:00</span>
+          <span class="g-task-name g-task-dim" id="g-q1-txt">Sveglia — acqua, respira</span>
+          <span class="g-task-hour" id="g-q1-time">06:00</span>
         </div>
         <!-- NEXT 2 -->
         <div class="g-task-row" id="g-queue-2" style="display: flex;">
           <div class="g-task-check"></div>
-          <span class="g-task-name g-task-dim" id="g-q2-txt">Mare + aria aperta</span>
-          <span class="g-task-hour" id="g-q2-time">17:30</span>
+          <span class="g-task-name g-task-dim" id="g-q2-txt">Colazione proteica</span>
+          <span class="g-task-hour" id="g-q2-time">06:10</span>
         </div>
         <!-- NEXT 3 -->
         <div class="g-task-row" id="g-queue-3" style="display: flex;">
           <div class="g-task-check"></div>
-          <span class="g-task-name g-task-dim" id="g-q3-txt">Cena</span>
-          <span class="g-task-hour" id="g-q3-time">19:00</span>
+          <span class="g-task-name g-task-dim" id="g-q3-txt">Mobilità articolare — 15 min</span>
+          <span class="g-task-hour" id="g-q3-time">06:35</span>
         </div>
       </div>
       <!-- PROGRESS CIRCLE -->
@@ -453,7 +467,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
   <!-- ── DAY SCORE ── -->
   <div class="g-score-wrap">
     <div class="g-score-left">
-      <span class="g-score-num" id="g-pl">0 di 22</span>
+      <span class="g-score-num" id="g-pl">0 di 23</span>
       <span class="g-score-tot" id="g-pp">0%</span>
     </div>
     <div class="g-score-right">
@@ -539,7 +553,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
 
     <div class="divider"></div>
     <div class="sec-lbl">📈 Trading — Blocco 1</div>
-    <div class="gtodo" data-time="08:00" data-end="11:00" onclick="gT(this)"><div class="gtodo-inner"><span class="gtime now">08:00</span><div class="gbox"></div><span class="gtodo-txt">Sessione London <span class="tag tr">08:00–11:00</span> <span class="gtodo-nav" onclick="event.stopPropagation();navGo('sessione',document.querySelector('.nav-item:nth-child(3)'));">→ Vai</span></span></div></div>
+    <div class="gtodo" data-time="08:00" data-end="11:00" onclick="gT(this)"><div class="gtodo-inner"><span class="gtime">08:00</span><div class="gbox"></div><span class="gtodo-txt">Sessione London <span class="tag tr">08:00–11:00</span> <span class="gtodo-nav" onclick="event.stopPropagation();navGo('sessione',document.querySelector('.nav-item:nth-child(3)'));">→ Vai</span></span></div></div>
     <div class="gtodo" data-time="11:00" data-end="11:15" onclick="gT(this)"><div class="gtodo-inner"><span class="gtime">11:00</span><div class="gbox"></div><span class="gtodo-txt">Pausa — chiudi + registra trade <span class="gtodo-nav" onclick="event.stopPropagation();navGo('trade',document.querySelector('.nav-item:nth-child(4)'));">→ Vai</span></span></div></div>
 
     <div class="divider"></div>
@@ -590,17 +604,17 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
         <div class="page-title">📈 Sessione</div>
         <div class="page-sub">XAUUSD · London · 08:00–12:00</div>
       </div>
-      <div style="font-size:11px;color:#9b9a97;margin-top:6px;" id="s-status">Chiusa — compila il journal</div>
+      <div style="font-size:11px;color:#9b9a97;margin-top:6px;" id="s-status">Mercato chiuso — vai al mare</div>
     </div>
     <div style="text-align:center;">
       <div style="font-size:13px;font-weight:600;color:#9b9a97;letter-spacing:.06em;margin-bottom:2px;">🇮🇹 IT</div>
-      <div style="font-size:36px;font-weight:700;font-variant-numeric:tabular-nums;color:#1a1a2e;line-height:1;" id="s-clock">15:25:05</div>
+      <div style="font-size:36px;font-weight:700;font-variant-numeric:tabular-nums;color:#1a1a2e;line-height:1;" id="s-clock">22:55:46</div>
       <div style="font-size:11px;font-weight:600;color:#9b9a97;letter-spacing:.06em;margin-top:8px;margin-bottom:2px;">🗽 NY</div>
-      <div style="font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;color:#9b9a97;line-height:1;" id="s-clock-ny">09:25</div>
+      <div style="font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;color:#9b9a97;line-height:1;" id="s-clock-ny">16:55</div>
     </div>
   </div>
 
-  <div style="background:#ffe2dd;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#be4b3c;font-weight:500;display:none;" id="s-warn" class="show">🔴 Sessione London chiusa. Chiudi tutto.</div>
+  <div style="background:#ffe2dd;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#be4b3c;font-weight:500;display:none;" id="s-warn" class="">🔴 Sessione London chiusa. Chiudi tutto.</div>
 
   <!-- TRADE COUNT -->
   <div style="margin-bottom:16px;">
@@ -672,41 +686,123 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
   </div><!-- /sess-live -->
 
   <div class="itab-content active" id="sess-plan">
+
+    <!-- GIORNI -->
+    <div class="tp-section">
+      <div class="sec-lbl" style="padding-top:0;">📅 Giorni operativi</div>
+      <div class="day-grid-tp">
+        <div class="day-box-tp" style="background:#ffe2dd;border-color:#f5c4b3;">
+          <div class="d-name" style="color:#be4b3c;">Lun</div>
+          <div class="d-wr" style="color:#be4b3c;">38%</div>
+          <div class="d-pnl" style="color:#be4b3c;">+2.975</div>
+        </div>
+        <div class="day-box-tp" style="background:#ffe2dd;border-color:#f5c4b3;">
+          <div class="d-name" style="color:#be4b3c;">Mar</div>
+          <div class="d-wr" style="color:#be4b3c;">44%</div>
+          <div class="d-pnl" style="color:#be4b3c;">−312</div>
+        </div>
+        <div class="day-box-tp" style="background:#d4eabc;border-color:#b8d99a;">
+          <div class="d-name" style="color:#448b35;">Mer</div>
+          <div class="d-wr" style="color:#448b35;">62%</div>
+          <div class="d-pnl" style="color:#448b35;">+15.526</div>
+        </div>
+        <div class="day-box-tp" style="background:#d4eabc;border-color:#8ecf6a;">
+          <div class="d-name" style="color:#2d6e1a;">Gio</div>
+          <div class="d-wr" style="color:#2d6e1a;">80%</div>
+          <div class="d-pnl" style="color:#2d6e1a;">+18.491</div>
+        </div>
+        <div class="day-box-tp" style="background:#d4eabc;border-color:#b8d99a;">
+          <div class="d-name" style="color:#448b35;">Ven</div>
+          <div class="d-wr" style="color:#448b35;">57%</div>
+          <div class="d-pnl" style="color:#448b35;">+8.784</div>
+        </div>
+      </div>
+      <div class="nb" style="margin-bottom:0;">Priorità: <strong>giovedì e mercoledì</strong>. Lun e mar solo setup cristallini.</div>
+    </div>
+
+    <!-- ORARI -->
+    <div class="tp-section">
+      <div class="sec-lbl" style="padding-top:0;">⏰ Fasce orarie (CET)</div>
+      <div class="orario-row-tp" style="background:#d4eabc;">
+        <div class="or-time" style="color:#2d6e1a;">13:00 – 18:00</div>
+        <div class="or-wr" style="color:#2d6e1a;">79%</div>
+        <div class="or-note" style="color:#2d6e1a;font-weight:600;">Overlap London/NY — fascia principale</div>
+      </div>
+      <div class="orario-row-tp" style="background:#d4eabc;">
+        <div class="or-time" style="color:#448b35;">18:00 – 22:00</div>
+        <div class="or-wr" style="color:#448b35;">71%</div>
+        <div class="or-note" style="color:#448b35;">New York attiva — seconda finestra</div>
+      </div>
+      <div class="orario-row-tp" style="background:#fdecc8;">
+        <div class="or-time" style="color:#b65b1a;">07:00 – 10:00</div>
+        <div class="or-wr" style="color:#b65b1a;">58%</div>
+        <div class="or-note" style="color:#b65b1a;">Pre-London — operabile, massima selettività</div>
+      </div>
+      <div class="orario-row-tp" style="background:#ffe2dd;">
+        <div class="or-time" style="color:#be4b3c;">10:00 – 13:00</div>
+        <div class="or-wr" style="color:#be4b3c;">38%</div>
+        <div class="or-note" style="color:#be4b3c;">London mid — evita o solo osservazione</div>
+      </div>
+      <div class="orario-row-tp" style="background:#ffe2dd;">
+        <div class="or-time" style="color:#be4b3c;">22:00 – 07:00</div>
+        <div class="or-wr" style="color:#be4b3c;">46%</div>
+        <div class="or-note" style="color:#be4b3c;font-weight:600;">Notte / Asia — non aprire il grafico</div>
+      </div>
+      <a href="https://www.forexfactory.com/calendar" target="_blank" class="cal-btn">📅 Calendario economico — Forex Factory →</a>
+    </div>
+
+    <!-- 5 CONFERME -->
+    <div class="tp-section">
+      <div class="sec-lbl" style="padding-top:0;">✅ Le 5 conferme — tutte o non si entra</div>
+      <div class="confirm-item-tp">
+        <div class="confirm-num-tp">1</div>
+        <div><span class="confirm-tf-tp">H4</span> — struttura macro + AOI identificata</div>
+      </div>
+      <div class="confirm-item-tp">
+        <div class="confirm-num-tp">2</div>
+        <div><span class="confirm-tf-tp">H1</span> — bias chiaro + AOI allineato</div>
+      </div>
+      <div class="confirm-item-tp">
+        <div class="confirm-num-tp">3</div>
+        <div><span class="confirm-tf-tp">Livello</span> — sweep liquidità su/intorno al key level</div>
+      </div>
+      <div class="confirm-item-tp">
+        <div class="confirm-num-tp">4</div>
+        <div><span class="confirm-tf-tp">5/15m</span> — allineamento con H1</div>
+      </div>
+      <div class="confirm-item-tp">
+        <div class="confirm-num-tp">5</div>
+        <div><span class="confirm-tf-tp">5/15m</span> — conferma entry (pattern, chiusura, struttura)</div>
+      </div>
+      <div class="nb" style="margin-bottom:0;margin-top:10px;">Una manca → niente trade. <strong>Nessuna eccezione.</strong></div>
+    </div>
+
+    <!-- RISK MANAGEMENT -->
     <div class="tp-section">
       <div class="sec-lbl" style="padding-top:0;">💰 Risk Management</div>
       <div class="tp-grid" style="margin-bottom:10px;">
-        <div class="tp-cell"><div class="tp-num-lbl">Risk per trade</div><div class="tp-num">1%</div><div style="font-size:11px;color:#9b9a97;margin-top:2px;">max — dividi in più entry</div></div>
-        <div class="tp-cell"><div class="tp-num-lbl">Max giornaliero</div><div class="tp-num" style="color:#be4b3c;">2%</div><div style="font-size:11px;color:#9b9a97;margin-top:2px;">= 2 loss → stop</div></div>
+        <div class="tp-cell"><div class="tp-num-lbl">RR fisso</div><div class="tp-num">1 : 2</div><div style="font-size:11px;color:#9b9a97;margin-top:2px;">parziale a 1:1 → BE → TP</div></div>
+        <div class="tp-cell"><div class="tp-num-lbl">Max loss / giorno</div><div class="tp-num" style="color:#be4b3c;">2%</div><div style="font-size:11px;color:#9b9a97;margin-top:2px;">→ stop immediato</div></div>
+        <div class="tp-cell"><div class="tp-num-lbl">Max loss / settimana</div><div class="tp-num" style="color:#be4b3c;">4-5%</div><div style="font-size:11px;color:#9b9a97;margin-top:2px;">→ settimana chiusa</div></div>
         <div class="tp-cell"><div class="tp-num-lbl">Asset</div><div class="tp-num" style="font-size:16px;">XAUUSD</div><div style="font-size:11px;color:#9b9a97;margin-top:2px;">solo oro</div></div>
-        <div class="tp-cell"><div class="tp-num-lbl">Max loss in fila</div><div class="tp-num">2</div><div style="font-size:11px;color:#9b9a97;margin-top:2px;">poi stop, sempre</div></div>
       </div>
-      <div class="nb" style="margin-bottom:0;">⚠️ <strong>2 loss consecutive → stacca.</strong> Zero revenge trading.</div>
+      <div class="nb" style="margin-bottom:0;">⚠️ <strong>2 loss consecutive → pausa 30 min.</strong> Zero revenge trading.</div>
     </div>
-    <div class="tp-section">
-      <div class="sec-lbl" style="padding-top:0;">⏰ Orari Operativi</div>
-      <div class="tp-rule"><div class="dot g"></div><div><strong>London</strong> 08:00–12:00 — sessione principale. Entry solo qui.</div></div>
-      <div class="tp-rule"><div class="dot"></div><div><strong>NY</strong> 15:30–17:00 — osservazione, no entry salvo setup perfetto.</div></div>
-      <div class="tp-rule"><div class="dot r"></div><div><strong>14:30–15:00 news rosse</strong> → niente entry. SL in atto se sei dentro.</div></div>
-      <div class="tp-rule"><div class="dot r"></div><div><strong>Dopo le 12:00</strong> → sessione chiusa, chiudi tutto.</div></div>
-      <a href="https://www.forexfactory.com/calendar" target="_blank" class="cal-btn">📅 Calendario economico — Forex Factory →</a>
-    </div>
-    <div class="tp-section">
-      <div class="sec-lbl" style="padding-top:0;">✅ Checklist pre-entry (SMC)</div>
-      <div class="tp-rule"><div class="dot" style="background:#9b9a97;"></div><div><strong>H4</strong> — macro + AOI + key levels</div></div>
-      <div class="tp-rule"><div class="dot" style="background:#9b9a97;"></div><div><strong>H1</strong> — bias chiaro + AOI + key levels</div></div>
-      <div class="tp-rule"><div class="dot" style="background:#9b9a97;"></div><div><strong>Sweep liquidità</strong> sul key level / AOI</div></div>
-      <div class="tp-rule"><div class="dot" style="background:#9b9a97;"></div><div><strong>5/15M</strong> — allineamento con H1</div></div>
-      <div class="tp-rule"><div class="dot" style="background:#9b9a97;"></div><div><strong>5/15M</strong> — conferma + SL impostato prima di aprire</div></div>
-      <div class="nb" style="margin-bottom:0;">Tutte e 5 vere. Una manca → niente trade.</div>
-    </div>
+
+    <!-- REGOLE -->
     <div class="tp-section">
       <div class="sec-lbl" style="padding-top:0;">🚫 Regole assolute</div>
-      <div class="tp-rule"><div class="dot r"></div><div><strong>Non muovere lo SL</strong> dopo l'entry.</div></div>
-      <div class="tp-rule"><div class="dot r"></div><div><strong>Non aprire</strong> senza checklist completa.</div></div>
-      <div class="tp-rule"><div class="dot r"></div><div><strong>Non recuperare</strong> una loss col trade dopo.</div></div>
-      <div class="tp-rule"><div class="dot r"></div><div><strong>Zero trade</strong> se il setup non c'era.</div></div>
-      <div class="tp-rule"><div class="dot r"></div><div><strong>Chiudi tutto</strong> alle 12:00 — nessuna eccezione.</div></div>
+      <div class="tp-rule"><div class="dot r"></div><div><strong>Non entrare</strong> senza tutte e 5 le conferme.</div></div>
+      <div class="tp-rule"><div class="dot r"></div><div><strong>Non copiare</strong> segnali del mentore — ogni decisione è tua.</div></div>
+      <div class="tp-rule"><div class="dot r"></div><div><strong>Non muovere lo SL</strong> contro posizione dopo l'entry.</div></div>
+      <div class="tp-rule"><div class="dot r"></div><div><strong>Non operare</strong> per noia o per troppo tempo senza trade.</div></div>
+      <div class="tp-rule"><div class="dot r"></div><div><strong>Non aprire grafici</strong> fuori dalle fasce operative.</div></div>
+      <div class="tp-rule"><div class="dot g"></div><div><strong>Annota sempre:</strong> setup, esito, stato emotivo.</div></div>
+      <div class="nb" style="margin-bottom:0;">L'impulso a entrare senza conferme è un segnale di <strong>stop</strong>, non di entry.</div>
     </div>
+
+    <div style="font-size:10px;color:#9b9a97;text-align:center;padding:6px 0 2px;">Basato su 50 trade reali · backtest feb 2025 · aggiorna dopo altri 50 trade</div>
+
   </div><!-- /sess-plan -->
 
 </div>
