@@ -602,7 +602,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;">
       <div>
         <div class="page-title">📈 Sessione</div>
-        <div class="page-sub">XAUUSD · London · 08:00–12:00</div>
+        <div class="page-sub">XAUUSD · 06:45–08:00 · 08:45–10:30 · 12:45–14:30 · 16:15–18:30</div>
       </div>
       <div style="font-size:11px;color:#9b9a97;margin-top:6px;" id="s-status">Mercato chiuso — vai al mare</div>
     </div>
@@ -614,7 +614,7 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
     </div>
   </div>
 
-  <div style="background:#ffe2dd;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#be4b3c;font-weight:500;display:none;" id="s-warn" class="">🔴 Sessione London chiusa. Chiudi tutto.</div>
+  <div style="background:#ede8e0;border-radius:8px;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#5c5147;font-weight:500;display:none;" id="s-warn" class="">⏸ Fuori fascia operativa. Chiudi il grafico.</div>
 
   <!-- TRADE COUNT -->
   <div style="margin-bottom:16px;">
@@ -658,22 +658,22 @@ body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; b
 
   <!-- CHECKLIST ENTRY -->
   <div class="card" style="margin-bottom:10px;">
-    <div class="sec-lbl" style="padding-top:0;">✅ Checklist entry</div>
-    <div class="s-chk done" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">H4 — direzione definita</span><span class="tag tb">H4</span></div>
-    <div class="s-chk done" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">H1 — bias chiaro e rottura visibile</span><span class="tag tb">H1</span></div>
-    <div class="s-chk done" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">AOI identificata sul livello chiave</span><span class="tag to">AOI</span></div>
-    <div class="s-chk" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">Sweep di liquidità + CHoCH/BOS su M15/M5</span><span class="tag to">15M/5M</span></div>
-    <div class="s-chk" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">Stop loss impostato prima dell'entry</span><span class="tag tr">SL</span></div>
+    <div class="sec-lbl" style="padding-top:0;">✅ Checklist entry — tutte e 5 o non si entra</div>
+    <div class="s-chk" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">H4 — struttura macro + AOI identificata</span><span class="tag tb">H4</span></div>
+    <div class="s-chk" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">H1 — bias chiaro + AOI allineato</span><span class="tag tb">H1</span></div>
+    <div class="s-chk" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">Sweep liquidità su/intorno al livello chiave</span><span class="tag to">LQ</span></div>
+    <div class="s-chk" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">5/15m — allineamento con H1</span><span class="tag to">15M</span></div>
+    <div class="s-chk" onclick="sbChk(this)"><div class="s-cbox"><span class="s-ctick">✓</span></div><span class="s-clbl">5/15m — conferma entry (pattern, chiusura, struttura)</span><span class="tag tr">5M</span></div>
   </div>
 
   <!-- REGOLE -->
   <div class="card" style="margin-bottom:10px;">
     <div class="sec-lbl" style="padding-top:0;">🚫 Regole — non si toccano</div>
-    <div class="s-rule"><div class="s-rdot r"></div><span><strong>Non intervenire</strong> sullo SL dopo l'entry</span></div>
-    <div class="s-rule"><div class="s-rdot r"></div><span><strong>Non aprire</strong> senza checklist completa</span></div>
-    <div class="s-rule"><div class="s-rdot r"></div><span><strong>Non recuperare</strong> una loss col trade dopo</span></div>
-    <div class="s-rule"><div class="s-rdot r"></div><span><strong>Chiudi tutto</strong> alle 12:00 — nessuna eccezione</span></div>
-    <div class="s-rule"><div class="s-rdot"></div><span>Zero trade è profittevole se il setup non c'era</span></div>
+    <div class="s-rule"><div class="s-rdot r"></div><span><strong>Non entrare</strong> senza tutte e 5 le conferme</span></div>
+    <div class="s-rule"><div class="s-rdot r"></div><span><strong>Non muovere lo SL</strong> contro posizione dopo l'entry</span></div>
+    <div class="s-rule"><div class="s-rdot r"></div><span><strong>Non operare</strong> per noia o troppo tempo senza trade</span></div>
+    <div class="s-rule"><div class="s-rdot r"></div><span><strong>Non copiare</strong> segnali — ogni decisione è tua</span></div>
+    <div class="s-rule"><div class="s-rdot"></div><span>Stop giornaliero −2% → chiudi tutto, sessione finita</span></div>
   </div>
 
   <!-- NOTE LIVE -->
@@ -2052,59 +2052,54 @@ Dom → pranzo libero (pulito), cena leggera. Finisci di mangiare entro le 19:30
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
       <div>
         <div style="font-size:15px;font-weight:600;">Lista spesa settimanale</div>
-        <div style="font-size:11px;color:#9b9a97;margin-top:2px;">Una spesa il lunedì. Stima: 50–65€</div>
+        <div style="font-size:11px;color:#9b9a97;margin-top:2px;">Una spesa il lunedì. Stima: 60–75€</div>
       </div>
       <button class="reset-btn" style="width:auto;margin:0;padding:7px 14px;" onclick="spesaReset()">↺ Reset</button>
     </div>
 
     <div class="prog-wrap">
-      <div class="prog-lbl"><span id="sp-pl">0 di 28</span><span id="sp-pp">0%</span></div>
+      <div class="prog-lbl"><span id="sp-pl">0 di 27</span><span id="sp-pp">0%</span></div>
       <div class="prog-bar"><div class="prog-fill" id="sp-pf" style="width:0%"></div></div>
     </div>
 
     <div class="card">
       <div class="sp-cat">🥚 Proteine</div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Uova intere</span><span class="sp-qty">18 pezzi</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Tonno al naturale</span><span class="sp-qty">6–8 lattine</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Petto di pollo o tacchino</span><span class="sp-qty">700–800g</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Uova intere</span><span class="sp-qty">21 pezzi</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Tonno al naturale</span><span class="sp-qty">4–5 lattine 150g</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Petto di pollo</span><span class="sp-qty">800g–1kg</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Salmone fresco o surgelato</span><span class="sp-qty">3 porzioni 200g</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Avocado</span><span class="sp-qty">2–3 pezzi</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Orata / sgombro / branzino</span><span class="sp-qty">3 porzioni 180g</span></div>
     </div>
 
     <div class="card">
       <div class="sp-cat">🍚 Carboidrati</div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Avena</span><span class="sp-qty">500g</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Riso basmati</span><span class="sp-qty">500g</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Riso basmati</span><span class="sp-qty">1kg</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Pasta integrale</span><span class="sp-qty">500g</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Pane integrale</span><span class="sp-qty">1 confezione</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Patate</span><span class="sp-qty">500g</span></div>
     </div>
 
     <div class="card">
       <div class="sp-cat">🥦 Verdure</div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Zucchine</span><span class="sp-qty">4–5 pezzi</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Pomodorini</span><span class="sp-qty">400g</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Cetrioli</span><span class="sp-qty">3 pezzi</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Peperoni</span><span class="sp-qty">2 pezzi</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Zucchine</span><span class="sp-qty">6–7 pezzi</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Pomodorini</span><span class="sp-qty">400–500g</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Insalata mista</span><span class="sp-qty">2 buste</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Carote</span><span class="sp-qty">4–5 pezzi</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Verdure miste stagione</span><span class="sp-qty">500g</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Aglio</span><span class="sp-qty">1 testa</span></div>
     </div>
 
     <div class="card">
       <div class="sp-cat">🍑 Frutta</div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Pesche</span><span class="sp-qty">6 pezzi</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Albicocche</span><span class="sp-qty">8–10 pezzi</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Mele</span><span class="sp-qty">4 pezzi</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Anguria o melone</span><span class="sp-qty">1 pezzo</span></div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Limoni</span><span class="sp-qty">4 pezzi</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Pesche / mele / albicocche</span><span class="sp-qty">8–10 pezzi</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Limoni</span><span class="sp-qty">4–5 pezzi</span></div>
     </div>
 
     <div class="card">
       <div class="sp-cat">🫙 Condimenti &amp; altro</div>
-      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Olio EVO (qualità ligure)</span><span class="sp-qty">non risparmiare</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Olio EVO</span><span class="sp-qty">non risparmiare</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Mandorle o noci</span><span class="sp-qty">200g</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Basilico fresco</span><span class="sp-qty">1 mazzetto</span></div>
+      <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Rosmarino</span><span class="sp-qty">fresco o secco</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Sale · spezie base</span><span class="sp-qty">se mancano</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Acqua</span><span class="sp-qty">scorta 2.5–3L/giorno</span></div>
       <div class="spesa-item" onclick="spTog(this)"><div class="sp-box"></div><span class="sp-txt">Creatina monoidrato</span><span class="sp-qty">5g/giorno</span></div>
